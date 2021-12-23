@@ -15,7 +15,7 @@ def prepare_optim(model, opt):
 
     # scheduler with pre-defined learning rate decay
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, 
-                                                    milestones = opt.milestones, 
+                                                    milestones = opt.milestones * opt.batch_size * opt.train_len, 
                                                     gamma = opt.gamma)
 
     return optimizer, scheduler
