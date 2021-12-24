@@ -44,13 +44,13 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 
 ## Citation
 ```
-@article{HyperReconNet,<br/>
-  title={HyperReconNet: Joint Coded Aperture Optimization and Image Reconstruction for Compressive Hyperspectral Imaging}, <br/>
-  author={Wang, Lizhi and Zhang, Tao and Fu, Ying and Huang, Hua},<br/>
-  journal={IEEE Transactions on Image Processing}, <br/>
-  volume={28},<br/>
-  number={5},<br/>
-  pages={2257-2270},<br/>
-  year={2019},<br/>
+@article{HyperReconNet,
+  title={HyperReconNet: Joint Coded Aperture Optimization and Image Reconstruction for Compressive Hyperspectral Imaging},
+  author={Wang, Lizhi and Zhang, Tao and Fu, Ying and Huang, Hua},
+  journal={IEEE Transactions on Image Processing},
+  volume={28},
+  number={5},
+  pages={2257-2270},
+  year={2019},
 }
 ```
