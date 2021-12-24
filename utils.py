@@ -14,7 +14,6 @@ def parse_arg():
     parser.add_argument('-epochs', type=int, default=100)
     parser.add_argument('-batch_num', type=int, default=118)  # the number of batches for each .h5 file
     parser.add_argument('-report_every', type=int, default=59)   # report log after x batches
-    parser.add_argument('-eval_every', type=int, default=117)   # evaluate model after x batches
     parser.add_argument('-train_len', type=int, default=2) # get the number of .h5 files
     parser.add_argument('-valid_len', type=int, default=2)
     # paths

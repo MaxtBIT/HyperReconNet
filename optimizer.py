@@ -5,7 +5,7 @@ def prepare_optim(model, opt):
     params = [ p for p in model.parameters() if p.requires_grad]
     
     for i in range(len(opt.milestones)):
-        opt.milestones[i] = opt.milestones[i] * opt.batch_size * opt.train_len
+        opt.milestones[i] = opt.milestones[i] * opt.batch_num * opt.train_len
     
     # optimizer type
     if opt.optim_type == 'adam':
