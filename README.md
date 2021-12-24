@@ -37,7 +37,7 @@ TensorboardX 2.4<br/>
 ```
 git clone https://github.com/MaxtBIT/HyperReconNet.git
 ```
-2. Download the pre-trained models from [Model](https://drive.google.com/file/d/1Ake44woddAtzZc8SDS_Oqj9zMbBMw7ec/view?usp=sharing) if you need.
+2. Download the pre-trained models from [Model](https://drive.google.com/file/d/1wsyO5XKe6dD2RIm85u8afnJCpGmKVM8D/view?usp=sharing) if you need.
 3. Make the datasets and place them in the correct path. Then, adapt the settings in **utils.py** according to your data.
 4. Run the file **main.py** to train the model.
 5. Run the file **test.py** to test the model.
