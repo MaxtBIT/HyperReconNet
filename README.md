@@ -48,7 +48,7 @@ The results reproduced on Harvard Dataset.
 <table>
    <tr>
       <td rowspan="2" ></td>
-      <td colspan="2" valign = "middle">ICVL</td>
+      <td colspan="2" align = "center">ICVL</td>
       <td colspan="2">Havard</td>  
    </tr>
    <tr>
