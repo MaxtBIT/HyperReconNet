@@ -45,33 +45,33 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 ## Results
 The results reproduced on Harvard Dataset.
 ### Reproducing Results on ICVL&Harvard Datasets
-<table align = "center">
-   <tr>
+<table>
+   <tr align = "center">
       <td rowspan="2"></td>
       <td colspan="2">ICVL</td>
       <td colspan="2">Havard</td>  
    </tr>
-   <tr>
+   <tr align = "center">
       <td>Paper</td>
       <td>Reproducing</td>
       <td>Paper</td>
       <td>Reproducing</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>PSNR</td>
       <td>33.63</td>
       <td>34.76</td>
       <td>31.36</td>
       <td>31.39</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>SSIM</td>
       <td>0.990</td>
       <td>0.973</td>
       <td>0.973</td>
       <td>0.900</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>SAM</td>
       <td>0.032</td>
       <td>0.040</td>
@@ -83,22 +83,22 @@ The results reproduced on Harvard Dataset.
 ### Results of Extra-Experiments on CAVE&KAIST Datasets
  The results on CAVE Dataset and KAIST Dataset. 30 scenes of CAVE are used for training, and 10 scenes of KAIST for testing.
 <table>
-   <tr>
+   <tr align = "center">
       <td>Mask</td>
       <td>Baseline</td>
       <td>Optimization</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>PSNR</td>
       <td>33.61</td>
       <td>36.13</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>SSIM</td>
       <td>0.915</td>
       <td>0.950</td>
    </tr>
-   <tr>
+   <tr align = "center">
       <td>SAM</td>
       <td>0.103</td>
       <td>0.075</td>
