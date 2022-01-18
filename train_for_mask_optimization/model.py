@@ -1,6 +1,6 @@
 import torch.nn as nn
-import CodedModel
-import ReconModel
+import train_for_mask_optimization.CodedModel as CodedModel
+import train_for_mask_optimization.ReconModel as ReconModel
 
 # set the entire structure of the network
 class HyperReconNet(nn.Module):

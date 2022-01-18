@@ -42,6 +42,57 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 4. Run the file **main.py** to train the model.
 5. Run the file **test.py** to test the model.
 
+## Results
+The results reproduced on Harvard Dataset.
+### Reproducing Results on ICVL&Harvard Datasets
+<table>
+   <tr>
+      <td></td>
+      <td>Paper</td>
+      <td>Reproducing</td>
+   </tr>
+   <tr>
+      <td>PSNR</td>
+      <td>32.43</td>
+      <td>32.22</td>
+   </tr>
+   <tr>
+      <td>SSIM</td>
+      <td>0.941</td>
+      <td>0.936</td>
+   </tr>
+   <tr>
+      <td>SAM</td>
+      <td>0.090</td>
+      <td>0.067</td>
+   </tr>
+</table>
+
+### Results of Extra-Experiments on CAVE&KAIST Datasets
+ The results on CAVE Dataset and KAIST Dataset. 30 scenes of CAVE are used for training, and 10 scenes of KAIST for testing.
+<table>
+   <tr>
+      <td>Mask</td>
+      <td>Baseline</td>
+      <td>Optimization</td>
+   </tr>
+   <tr>
+      <td>PSNR</td>
+      <td>33.61</td>
+      <td>36.13</td>
+   </tr>
+   <tr>
+      <td>SSIM</td>
+      <td>0.915</td>
+      <td>0.950</td>
+   </tr>
+   <tr>
+      <td>SAM</td>
+      <td>0.103</td>
+      <td>0.075</td>
+   </tr>
+</table>
+
 ## Citation
 ```
 @article{HyperReconNet,

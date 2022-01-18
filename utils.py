@@ -8,6 +8,7 @@ import cv2
 # function for parsing input arguments
 def parse_arg():
     parser = argparse.ArgumentParser(description='train.py')
+    parser.add_argument('-mode', type=str, default="optim", help="baseline: random mask, optim: learnable mask")
     # training settings
     parser.add_argument('-gpuid', type=int, default=0)
     parser.add_argument('-batch_size', type=int, default=128)  
@@ -20,12 +21,14 @@ def parse_arg():
     parser.add_argument('-save_dir', type=str, default='./model/')
     parser.add_argument('-save_log', type=str, default='./data_log/')
     parser.add_argument('-save_loss', type=str, default='./graph_log/')
-    parser.add_argument('-pretrained_path', type=str, default='./pretrained_model/model_Harvard.pth') # set the path of the pre-trained model
-    parser.add_argument('-trainset_path', type=str, default='./data/Harvard_train/') # set the path of the trainset
-    parser.add_argument('-testset_path', type=str, default='./data/Harvard_test/') # set the path of the testset
+    parser.add_argument('-pretrained_path', type=str, default='./pretrained_model/model_Harvard.pth', help="icvl:model_ICVL, havard: model_Harvard, cave: model_CAVE_baseline/optim.pth") # set the path of the pre-trained model
+    parser.add_argument('-trainset_path', type=str, default='./data/Harvard_train/', help="icvl: ./data/ICVL_train/, havard: ./data/Harvard_train/, cave: ./data/CAVE_train/") # set the path of the trainset
+    parser.add_argument('-testset_path', type=str, default='./data/Harvard_test/', help="icvl: ./data/ICVL_test/, havard: ./data/Harvard_test/, kaist: ./data/KAIST_test/") # set the path of the testset
     # model settings
     parser.add_argument('-save_name', type=str, default='trained_model')   
-    parser.add_argument('-pretrained', type=bool, default=False) # used for loading the pre-trained model
+    parser.add_argument('-pretrained', type=bool, default=True) # used for loading the pre-trained model
+    parser.add_argument('-channel', type=int, default=31, help="ICVL/Havard: 31, CAVE: 28") 
+    parser.add_argument('-patch_size', type=int, default=64) # get the size of patches
     # optimizer settings
     parser.add_argument('-optim_type', type=str, default='adam', help="adam or sgd")
     parser.add_argument('-lr', type=float, default=0.0001, help="adam:0.0001, sgd: 0.05")
@@ -65,19 +68,31 @@ def Cal_mse(im1, im2):
     return np.mean(np.square(im1 - im2), dtype=np.float64)
 
 # calculate the peak signal-to-noise ratio (PSNR)
-def Cal_PSNR(im_true, im_test):
+def Cal_PSNR_by_gt(im_true, im_test):
 
     channel  = im_true.shape[2]
     im_true  = 255*im_true
     im_test  = 255*im_test
-
-    psnr_sum = 0.
+    
+    psnr_sum = 0
     for i in range(channel):
         band_true = np.squeeze(im_true[:,:,i])
         band_test = np.squeeze(im_test[:,:,i])
         err       = Cal_mse(band_true, band_test)
         max_value = np.max(np.max(band_true))
         psnr_sum  = psnr_sum+10 * np.log10((max_value ** 2) / err)
+    
+    return psnr_sum/channel
+
+def Cal_PSNR_by_default(im_true, im_test):
+
+    channel  = im_true.shape[2]   
+    psnr_sum = 0.
+    for i in range(channel):
+        band_true = np.squeeze(im_true[:,:,i])
+        band_test = np.squeeze(im_test[:,:,i])
+        err       = Cal_mse(band_true, band_test)
+        psnr_sum  = psnr_sum+10 * np.log10(1.0 / err)
     
     return psnr_sum/channel
 

@@ -21,14 +21,14 @@ def train(model, optim, sche, opt):
 
     # save the training log and the loss graph
     now_time = datetime.datetime.now()
-    logname = "./data_log/" + str(now_time) + "log.txt"
-    writer = SummaryWriter('./graph_log/' + str(now_time) + '/')
-
+    logname = opt.save_log + str(now_time) + "log.txt"
+    writer = SummaryWriter(opt.save_loss + str(now_time) + '/')
+    
     # make dirction
-    if not os.path.exists('./graph_log/'):
-        os.makedirs('./graph_log/')
-    if not os.path.exists('./data_log/'):
-        os.makedirs('./data_log/')
+    if not os.path.exists(opt.save_loss):
+        os.makedirs(opt.save_loss)
+    if not os.path.exists(opt.save_log):
+        os.makedirs(opt.save_log)
     
     # evaluate model
     evaluate(logname,model,0, opt)
@@ -124,7 +124,7 @@ def evaluate(logname,model,epoch, opt):
                 data = np.array(data)
                 #calculate psnr
                 for i in range(len(data)):
-                    psnr_cache.append(utils.Cal_PSNR(data[i],hsi_pred[i]))
+                    psnr_cache.append(utils.Cal_PSNR_by_gt(data[i],hsi_pred[i]))
 
     # calculate the average PSNR of the total validset
     PSNR = sum(psnr_cache)/len(psnr_cache)

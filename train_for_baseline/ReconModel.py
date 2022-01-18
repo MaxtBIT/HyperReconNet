@@ -1,25 +1,30 @@
 import torch
 import torch.nn as nn
 from torch.nn import init
+import utils
 
 class ReconNet(nn.Module):
 
     def __init__(self):
  
         super(ReconNet, self).__init__()
+
+        opt = utils.parse_arg()
+        self.patch_size = opt.patch_size
+        self.channel = opt.channel
         
         #set spatialCNN (need padding in column)
         self.spatialCNN_1 = nn.Sequential()
-        for i in range(64):
-            self.spatialCNN_1.add_module('spatialCNN_1_' + str(i), nn.Sequential(nn.Conv2d(1,31,(64, 3), padding = (0,1)), nn.ReLU(inplace=True),))
+        for i in range(opt.patch_size):
+            self.spatialCNN_1.add_module('spatialCNN_1_' + str(i), nn.Sequential(nn.Conv2d(1,opt.channel,(opt.patch_size, 3), padding = (0,1)), nn.ReLU(inplace=True),))
 
         self.spatialCNN_2 = nn.Sequential()
-        for i in range(64):
-            self.spatialCNN_2.add_module('spatialCNN_2_' + str(i), nn.Sequential(nn.Conv2d(31,31,(64, 3), padding = (0,1)), nn.ReLU(inplace=True),))
+        for i in range(opt.patch_size):
+            self.spatialCNN_2.add_module('spatialCNN_2_' + str(i), nn.Sequential(nn.Conv2d(opt.channel,opt.channel,(opt.patch_size, 3), padding = (0,1)), nn.ReLU(inplace=True),))
 
         self.spatialCNN_3= nn.Sequential()
-        for i in range(64):
-            self.spatialCNN_3.add_module('spatialCNN_3_' + str(i), nn.Sequential(nn.Conv2d(31,31,(64, 3), padding = (0,1)), nn.ReLU(inplace=True), ))
+        for i in range(opt.patch_size):
+            self.spatialCNN_3.add_module('spatialCNN_3_' + str(i), nn.Sequential(nn.Conv2d(opt.channel,opt.channel,(opt.patch_size, 3), padding = (0,1)), nn.ReLU(inplace=True), ))
         
         #set spectralCNN (need padding)
         self.spectralCNN_1= nn.Sequential()
@@ -28,7 +33,7 @@ class ReconNet(nn.Module):
                 nn.Conv2d(64,32,1), nn.ReLU(inplace=True), nn.Conv2d(32, 1, 5, padding = 2), ))
 
         self.spectralCNN_2= nn.Sequential()
-        for i in range(29):
+        for i in range(self.channel - 2):
             self.spectralCNN_2.add_module('SpectralCNN_2_' + str(i), nn.Sequential(nn.Conv2d( 3, 64, 9, padding = 4), nn.ReLU(inplace=True), 
                 nn.Conv2d(64,32,1), nn.ReLU(inplace=True), nn.Conv2d(32, 1, 5, padding = 2), ))
 
@@ -52,25 +57,25 @@ class ReconNet(nn.Module):
         x = x.cuda()
 
         # Spatial CNN
-        scnn_1 = torch.zeros(batch_size, 31, 64, 64).cuda()     #[B, 31, 64, 64]
-        for i in range(64):
+        scnn_1 = torch.zeros(batch_size, self.channel, self.patch_size, self.patch_size).cuda()     #[B, 31, 64, 64]
+        for i in range(self.patch_size):
             scnn_1[:, :, i, :] = self.spatialCNN_1[i](x).squeeze(2)   #[B, 31, 1, 64]
     
-        scnn_2 = torch.zeros(batch_size, 31, 64, 64).cuda()     #[B, 31, 64, 64]
-        for i in range(64):
+        scnn_2 = torch.zeros(batch_size, self.channel, self.patch_size, self.patch_size).cuda()     #[B, 31, 64, 64]
+        for i in range(self.patch_size):
             scnn_2[:, :, i, :] = self.spatialCNN_2[i](scnn_1).squeeze(2)   #[B, 31, 1, 64]
 
-        scnn_3 = torch.zeros(batch_size, 31, 64, 64).cuda()     #[B, 31, 64, 64]
-        for i in range(64):
+        scnn_3 = torch.zeros(batch_size, self.channel, self.patch_size, self.patch_size).cuda()     #[B, 31, 64, 64]
+        for i in range(self.patch_size):
             scnn_3[:, :, i, :] = self.spatialCNN_3[i](scnn_2).squeeze(2)   #[B, 31, 1, 64]
 
         # Spectral CNN
-        recon_hsi = torch.zeros(batch_size, 31, 64, 64).cuda()     #[B, 31, 64, 64]
-        for i in range(31):
+        recon_hsi = torch.zeros(batch_size, self.channel, self.patch_size, self.patch_size).cuda()     #[B, 31, 64, 64]
+        for i in range(self.channel):
             if i == 0:
                 recon_hsi[:, i, :, :] = self.spectralCNN_1[0](scnn_3[:, 0 : 2, :, :]).squeeze(1)  #[B, 1, 64, 64]
-            elif i == 30:
-                recon_hsi[:, i, :, :] = self.spectralCNN_1[1](scnn_3[:, 29 : 31, :, :]).squeeze(1)  #[B, 1, 64, 64]
+            elif i == (self.channel - 1):
+                recon_hsi[:, i, :, :] = self.spectralCNN_1[1](scnn_3[:, (self.channel - 2) : self.channel, :, :]).squeeze(1)  #[B, 1, 64, 64]
             else:
                 recon_hsi[:, i, :, :] = self.spectralCNN_2[i-1](scnn_3[:, i-1 : i+2, :, :]).squeeze(1)  #[B, 1, 64, 64]
         
@@ -81,4 +86,3 @@ class ReconNet(nn.Module):
 
 def ReconModel():
     return ReconNet()
- 

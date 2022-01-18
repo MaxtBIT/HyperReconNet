@@ -5,7 +5,7 @@
 import math
 import torch.nn as nn
 import torch.nn.functional as F
-from functions import *
+from train_for_mask_optimization.functions import *
 
 class BinaryTanh(nn.Module):
     def __init__(self):
