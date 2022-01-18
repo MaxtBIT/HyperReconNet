@@ -46,10 +46,10 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 The results reproduced on Harvard Dataset.
 ### Reproducing Results on ICVL&Harvard Datasets
 <table>
-   <tr>
+   <tr align = "center">
       <td rowspan="2" ></td>
-      <td colspan="2" align = "center">ICVL</td>
-      <td colspan="2">Havard</td>  
+      <td colspan="2" >ICVL</td>
+      <td colspan="2" >Havard</td>  
    </tr>
    <tr>
       <td>Paper</td>
