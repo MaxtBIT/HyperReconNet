@@ -52,8 +52,8 @@ The results reproduced on Harvard Dataset.
       <td colspan="2">Havard</td>  
    </tr>
    <tr align = "center">
-      <td width = "40">Paper</td>
-      <td width = "40">Reproducing</td>
+      <td>Paper</td>
+      <td>Reproducing</td>
       <td>Paper</td>
       <td>Reproducing</td>
    </tr>
