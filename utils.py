@@ -26,7 +26,7 @@ def parse_arg():
     parser.add_argument('-testset_path', type=str, default='./data/Harvard_test/', help="icvl: ./data/ICVL_test/, havard: ./data/Harvard_test/, kaist: ./data/KAIST_test/") # set the path of the testset
     # model settings
     parser.add_argument('-save_name', type=str, default='trained_model')   
-    parser.add_argument('-pretrained', type=bool, default=True) # used for loading the pre-trained model
+    parser.add_argument('-pretrained', type=bool, default=False) # used for loading the pre-trained model
     parser.add_argument('-channel', type=int, default=31, help="ICVL/Havard: 31, CAVE: 28") 
     parser.add_argument('-patch_size', type=int, default=64) # get the size of patches
     # optimizer settings
