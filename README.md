@@ -52,9 +52,9 @@ The results reproduced on Harvard Dataset.
       <td colspan="2">Havard</td>  
    </tr>
    <tr align = "center">
-      <td>Paper</td>
+      <td>   Paper   </td>
       <td>Reproducing</td>
-      <td>Paper</td>
+      <td>   Paper   </td>
       <td>Reproducing</td>
    </tr>
    <tr align = "center">
@@ -85,7 +85,7 @@ The results reproduced on Harvard Dataset.
 <table>
    <tr align = "center">
       <td>Mask</td>
-      <td>Baseline</td>
+      <td>  Baseline  </td>
       <td>Optimization</td>
    </tr>
    <tr align = "center">
