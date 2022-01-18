@@ -47,7 +47,13 @@ The results reproduced on Harvard Dataset.
 ### Reproducing Results on ICVL&Harvard Datasets
 <table>
    <tr>
-      <td></td>
+      <td rowspan="2"></td>
+      <td colspan="2">ICVL</td>
+      <td colspan="2">Havard</td>  
+   </tr>
+   <tr>
+      <td>Paper</td>
+      <td>Reproducing</td>
       <td>Paper</td>
       <td>Reproducing</td>
    </tr>
@@ -55,16 +61,22 @@ The results reproduced on Harvard Dataset.
       <td>PSNR</td>
       <td>32.43</td>
       <td>32.22</td>
+      <td>32.43</td>
+      <td>32.22</td>
    </tr>
    <tr>
       <td>SSIM</td>
       <td>0.941</td>
       <td>0.936</td>
+      <td>32.43</td>
+      <td>32.22</td>
    </tr>
    <tr>
       <td>SAM</td>
       <td>0.090</td>
       <td>0.067</td>
+      <td>32.43</td>
+      <td>32.22</td>
    </tr>
 </table>
 
