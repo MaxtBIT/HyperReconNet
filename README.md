@@ -82,7 +82,7 @@ The results reproduced on ICVL and Harvard datasets. In this stage, mask is lear
 </table>
 
 ### Results of Extra-Experiments on CAVE&KAIST Datasets
- The results on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The mask of "Baseline" is a constant but it is  learnable in "Optimization". Note that, there is only **one binary mask** in training and testing.
+ The results on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The mask of "Baseline" is a constant but it is learnable in "Optimization". Note that, there is only **one binary mask** utilized in training and testing.
 <table>
    <tr align = "center">
       <td>Mask</td>
