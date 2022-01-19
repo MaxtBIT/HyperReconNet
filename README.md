@@ -38,7 +38,7 @@ spectral 0.22.4<br/>
 ```
 git clone https://github.com/MaxtBIT/HyperReconNet.git
 ```
-2. Download the pre-trained models from [Models](https://drive.google.com/file/d/1WWgEgDVh71d-E6tYjPwq0T0muiXkEXxk/view?usp=sharing) if you need.
+2. Download the [pre-trained models](https://drive.google.com/file/d/1WWgEgDVh71d-E6tYjPwq0T0muiXkEXxk/view?usp=sharing) if you need.
 3. Make the datasets and place them in correct paths. Then, adjust the settings in **utils.py** according to your data.
 4. Run the file **main.py** to train a model.
 5. Run the file **test_for_paper.py** or **test_for_kaist.py** to test a model.
