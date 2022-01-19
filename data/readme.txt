@@ -2,17 +2,21 @@
 A Few Descriptions of Datasets
 ==============================================================================
 1. How to make datasets?
-For training, trainsets and validsets are gained from the same data in a ratio of four to one. First, read the complete images from .mat files and normalize them to [0, 1]. Then, obtain the patches according to a given stride and save them in HDF5 files. Note that, each .h5 file should be in the same length and the patches should be shuffled.
-For testing, the stride used for obtaining patches is half of the patch size. That is, half of the adjacent patches are overlapped. When interfacing the model, the overlapping area shoud be averaged. Afterwards, the stitched images are used to calculate the performance metrics.
+For training, trainsets and validsets are gained from the same data in a ratio of four to one. First, read the complete images from .mat files and normalize them to [0, 1]. 
+Then, obtain the patches according to a given stride and save them in HDF5 files. Note that, each .h5 file should be in the same length and the patches should be shuffled.
+For testing, the stride used for obtaining patches is half of the patch size. That is, half of the adjacent patches are overlapped. 
+When interfacing the model, the overlapping area shoud be averaged. Afterwards, the stitched images are used to calculate the performance metrics.
 ==============================================================================
 2. How to adjust settings in "utils.py"?
 First, select the "mode". "Baseline" corresponds to a constant mask and "Optim" corresponds to a learnable one.
 Second, modify the paths including "pretrained_path", "trainset_path", and "testset_path".
-Third, set "gpuid", "batch_size", "batch_num", "train_len", and "valid_len". "batch_num" represents the number of batches of one .h5 file. "train_len" and "valid_len" represent the number of .h5 files.
+Third, set "gpuid", "batch_size", "batch_num", "train_len", and "valid_len". "Batch_num" represents the number of batches of one .h5 file. 
+"Train_len" and "valid_len" represent the number of .h5 files.
 Finally, check "channel" and "patch_size" according to your data. Depending on whether you need to load the pre-trained model, set "pretrained" to True or False.
 ==============================================================================
 3. How to split datasets?
-For ICVL dataset, 100 scenes are used for training, and 50 scenes are used for testing. These images are published in http://icvl.cs.bgu.ac.il/hyperspectral/. The split filenames are as follows:
+For ICVL dataset, 100 scenes are used for training, and 50 scenes are used for testing. These images are published in 
+http://icvl.cs.bgu.ac.il/hyperspectral/. The split filenames are as follows:
 ---------ICVL_train---------
 001: 4cam_0411-1640-1
 002: 4cam_0411-1648
@@ -167,7 +171,8 @@ For ICVL dataset, 100 scenes are used for training, and 50 scenes are used for t
 049: nachal_0823-1132
 050: nachal_0823-1144
 
-For Havrad dataset, 35 scenes are used for training, and 9 scenes are used for testing. These images are published in http://vision.seas.harvard.edu/hyperspec/. The split filenames are as follows:
+For Havrad dataset, 35 scenes are used for training, and 9 scenes are used for testing. These images are published in 
+http://vision.seas.harvard.edu/hyperspec/. The split filenames are as follows:
 ---------Havrad_train---------
 001: img1
 002: img2
@@ -216,7 +221,8 @@ For Havrad dataset, 35 scenes are used for training, and 9 scenes are used for t
 008: imgh2
 009: imgh3
 
-For CAVE dataset, 30 scenes are used for training. These images are published in https://www1.cs.columbia.edu/CAVE/projects/gap_camera/. The filenames are as follows:
+For CAVE dataset, 30 scenes are used for training. These images are published in https://www1.cs.columbia.edu/CAVE/projects/gap_camera/. 
+The filenames are as follows:
 ---------CAVE_train---------
 001: balloons_ms
 002: beads_ms
@@ -249,7 +255,8 @@ For CAVE dataset, 30 scenes are used for training. These images are published in
 029: thread_spools_ms
 030: watercolors_ms
 
-For KAIST dataset, 10 scenes are used for testing. These images are published in http://vclab.kaist.ac.kr/siggraphasia2017p1/. The filenames are as follows:
+For KAIST dataset, 10 scenes are used for testing. These images are published in http://vclab.kaist.ac.kr/siggraphasia2017p1/. 
+The filenames are as follows:
 ---------KAIST_test---------
 001: scene03
 002: scene04
