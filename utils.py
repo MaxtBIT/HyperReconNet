@@ -21,7 +21,7 @@ def parse_arg():
     parser.add_argument('-save_dir', type=str, default='./model/')
     parser.add_argument('-save_log', type=str, default='./data_log/')
     parser.add_argument('-save_loss', type=str, default='./graph_log/')
-    parser.add_argument('-pretrained_path', type=str, default='./pretrained_model/model_Harvard.pth', help="icvl:model_ICVL, havard: model_Harvard, cave: model_CAVE_baseline/optim.pth") # set the path of the pre-trained model
+    parser.add_argument('-pretrained_path', type=str, default='./pretrained_model/model_Harvard.pth', help="icvl:model_ICVL.pth, havard: model_Harvard.pth, cave: model_CAVE_baseline/optim.pth") # set the path of the pre-trained model
     parser.add_argument('-trainset_path', type=str, default='./data/Harvard_train/', help="icvl: ./data/ICVL_train/, havard: ./data/Harvard_train/, cave: ./data/CAVE_train/") # set the path of the trainset
     parser.add_argument('-testset_path', type=str, default='./data/Harvard_test/', help="icvl: ./data/ICVL_test/, havard: ./data/Harvard_test/, kaist: ./data/KAIST_test/") # set the path of the testset
     # model settings
