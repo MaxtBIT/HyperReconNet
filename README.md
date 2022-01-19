@@ -22,7 +22,7 @@ In the paper, two benchmarks are utilized for training and testing. Please check
 >>>...<br/>
 >>>--testn/<br/>
 
-Note that, every image for testing is saved as several 2D images according to different channels. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
+A few descriptions of datasets can be checked in [README](). Note that, every image for testing is saved as several 2D images according to different channels. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
 
 ## Environment
 Python 3.6.2<br/>
@@ -31,6 +31,7 @@ Torch 1.7.0<br/>
 OpenCV 4.5.4<br/>
 h5py 3.1.0<br/>
 TensorboardX 2.4<br/>
+spectral 0.22.4<br/>
 
 ## Usage
 1. Download this repository via git or download the [zip file](https://github.com/MaxtBIT/HyperReconNet/archive/refs/heads/main.zip) manually.
@@ -43,7 +44,7 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 5. Run the file **test.py** to test the model.
 
 ## Results
-The results reproduced on Harvard Dataset.
+The results reproduced on ICVL and Harvard datasets.
 ### Reproducing Results on ICVL&Harvard Datasets
 <table>
    <tr align = "center">
@@ -81,7 +82,7 @@ The results reproduced on Harvard Dataset.
 </table>
 
 ### Results of Extra-Experiments on CAVE&KAIST Datasets
- The results on CAVE Dataset and KAIST Dataset. 30 scenes of CAVE are used for training, and 10 scenes of KAIST for testing.
+ The results on [CAVE](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) Dataset and [KAIST](http://vclab.kaist.ac.kr/siggraphasia2017p1/) Dataset. 30 scenes of CAVE are used for training, and 10 scenes of KAIST for testing.
 <table>
    <tr align = "center">
       <td>Mask</td>
