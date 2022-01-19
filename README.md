@@ -34,17 +34,17 @@ TensorboardX 2.4<br/>
 spectral 0.22.4<br/>
 
 ## Usage
-1. Download this repository via git or download the [zip file](https://github.com/MaxtBIT/HyperReconNet/archive/refs/heads/main.zip) manually.
+1. Download this repository via git or download the [ZIP file](https://github.com/MaxtBIT/HyperReconNet/archive/refs/heads/main.zip) manually.
 ```
 git clone https://github.com/MaxtBIT/HyperReconNet.git
 ```
-2. Download the pre-trained models from [Model](https://drive.google.com/file/d/1WWgEgDVh71d-E6tYjPwq0T0muiXkEXxk/view?usp=sharing) if you need.
-3. Make the datasets and place them in the correct path. Then, adapt the settings in **utils.py** according to your data.
-4. Run the file **main.py** to train the model.
-5. Run the file **test.py** to test the model.
+2. Download the pre-trained models from [Models](https://drive.google.com/file/d/1WWgEgDVh71d-E6tYjPwq0T0muiXkEXxk/view?usp=sharing) if you need.
+3. Make the datasets and place them in correct paths. Then, adapt the settings in **utils.py** according to your data.
+4. Run the file **main.py** to train a model.
+5. Run the file **test_for_paper.py** or **test_for_kaist.py** to test a model.
 
 ## Results
-The results reproduced on ICVL and Harvard datasets.
+The results reproduced on ICVL and Harvard datasets. In this stage, mask is learnable. The size of patches is 64*64*31.
 ### Reproducing Results on ICVL&Harvard Datasets
 <table>
    <tr align = "center">
@@ -82,7 +82,7 @@ The results reproduced on ICVL and Harvard datasets.
 </table>
 
 ### Results of Extra-Experiments on CAVE&KAIST Datasets
- The results on [CAVE](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) Dataset and [KAIST](http://vclab.kaist.ac.kr/siggraphasia2017p1/) Dataset. 30 scenes of CAVE are used for training, and 10 scenes of KAIST for testing.
+ The results on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The mask of "Baseline" is a constant but it is  learnable in "Optimization". Note that, there is only **one binary mask** in training and testing.
 <table>
    <tr align = "center">
       <td>Mask</td>
