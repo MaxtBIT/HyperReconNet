@@ -1,5 +1,5 @@
 ==============================================================================
-A few descriptions of datasets are as follows:
+A Few Descriptions of Datasets
 ==============================================================================
 1. How to make datasets?
 For training, trainsets and validsets are generated from the same data in a ratio of four to one. 
