@@ -44,7 +44,7 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 5. Run the file **test_for_paper.py** or **test_for_kaist.py** to test a model.
 
 ## Results
-The results reproduced on ICVL and Harvard datasets. In this stage, mask is learnable. The size of patches is 64*64*31.
+The results reproduced on ICVL and Harvard datasets. In this stage, mask is learnable. The size of patches is 64 * 64 * 31.
 ### Reproducing Results on ICVL&Harvard Datasets
 <table>
    <tr align = "center">
