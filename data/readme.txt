@@ -2,10 +2,10 @@
 A Few Descriptions of Datasets
 ==============================================================================
 1. How to make datasets?
-For training, trainsets and validsets are gained from the same data in a ratio of four to one. First, read the complete images from .mat files and normalize them to [0, 1]. 
+For training, trainsets and validsets are derived from the same data in a ratio of four to one. First, read the complete images from .mat files and normalize them to 0-1. 
 Then, obtain the patches according to a given stride and save them in HDF5 files. Note that, each .h5 file should be in the same length and the patches should be shuffled.
-For testing, the stride used for obtaining patches is half of the patch size. That is, half of the adjacent patches are overlapped. 
-When interfacing the model, the overlapping area shoud be averaged. Afterwards, the stitched images are used to calculate the performance metrics.
+For testing, the stride used for obtaining patches is equal to half of the patch size. That is, half of the adjacent patches are overlapped. 
+When interfacing the model, the overlapping areas shoud be averaged. Afterwards, the stitched images are used to calculate the performance metrics.
 ==============================================================================
 2. How to adjust settings in "utils.py"?
 First, select the "mode". "Baseline" corresponds to a constant mask and "Optim" corresponds to a learnable one.
