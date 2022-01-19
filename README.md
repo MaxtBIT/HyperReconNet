@@ -22,7 +22,7 @@ In the paper, two benchmarks are utilized for training and testing. Please check
 >>>...<br/>
 >>>--testn/<br/>
 
-A few descriptions of datasets can be checked in [README](https://github.com/MaxtBIT/HyperReconNet/blob/main/data/readme.txt). Note that, every image for testing is saved as several 2D images according to different channels. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
+A few descriptions of datasets can be checked in [README](https://github.com/MaxtBIT/HyperReconNet/blob/main/data/readme.txt). Note that, every image for testing is saved as several 2D images according to different channels.
 
 ## Environment
 Python 3.6.2<br/>
@@ -45,7 +45,7 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 
 ## Results
 ### 1. Reproducing Results on ICVL&Harvard Datasets
-The results reproduced on [ICVL Dataset](http://icvl.cs.bgu.ac.il/hyperspectral/) and [Harvard Dataset](http://vision.seas.harvard.edu/hyperspec/). In this stage, the mask is learnable. And the size of patches is 64 * 64 * 31.
+The results reproduced on [ICVL Dataset](http://icvl.cs.bgu.ac.il/hyperspectral/) and [Harvard Dataset](http://vision.seas.harvard.edu/hyperspec/). In this stage, the mask is learnable. And the size of patches is 64 * 64 * 31. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
 <table>
    <tr align = "center">
       <td rowspan="2"></td>
@@ -82,7 +82,7 @@ The results reproduced on [ICVL Dataset](http://icvl.cs.bgu.ac.il/hyperspectral/
 </table>
 
 ### 2. Results of Extra-Experiments on CAVE&KAIST Datasets
- The results obtained on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The mask of "Baseline" is a constant but it is learnable in "Optimization". Note that, there is only **one binary mask** utilized in training and testing.
+The results obtained on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The mask of "Baseline" is a constant but it is learnable in "Optimization". Note that, there is only **one binary mask** utilized in training and testing. Images with a size of 256 * 256 * 28 are used for comparison.
 <table>
    <tr align = "center">
       <td>Mask</td>
