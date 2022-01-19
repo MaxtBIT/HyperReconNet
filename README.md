@@ -22,7 +22,7 @@ In the paper, two benchmarks are utilized for training and testing. Please check
 >>>...<br/>
 >>>--testn/<br/>
 
-A few descriptions of datasets can be checked in [README](). Note that, every image for testing is saved as several 2D images according to different channels. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
+A few descriptions of datasets can be checked in [README](https://github.com/MaxtBIT/HyperReconNet/blob/main/data/readme.txt). Note that, every image for testing is saved as several 2D images according to different channels. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
 
 ## Environment
 Python 3.6.2<br/>
