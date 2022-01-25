@@ -40,14 +40,16 @@ def main():
     # initialize the model
     if opt.mode == 'baseline':
         model_train = model_baseline.prepare_model(opt)
+        # loading the pre-train model (if need)
+        if opt.pretrained:
+            model_train = torch.load(opt.pretrained_path,  map_location='cuda:0') 
     elif opt.mode == 'optim':
         model_train = model_optim.prepare_model(opt)
+        # loading the pre-train model (if need)
+        if opt.pretrained:
+            model_train.load_state_dict(torch.load(opt.pretrained_path,  map_location='cuda:0') )
     else:
         raise NotImplementedError
-
-    # loading the pre-train model (if need)
-    if opt.pretrained:
-        model_train.load_state_dict(torch.load(opt.pretrained_path,  map_location='cuda:0') )
     
     # configurate the optimizer and learning rate scheduler
     optim, sche = optimizer.prepare_optim(model_train, opt)
