@@ -46,7 +46,7 @@ git clone https://github.com/MaxtBIT/HyperReconNet.git
 ## Results
 ### 1. Reproducing Results on ICVL&Harvard Datasets
 The results reproduced on [ICVL Dataset](http://icvl.cs.bgu.ac.il/hyperspectral/) and [Harvard Dataset](http://vision.seas.harvard.edu/hyperspec/). In this stage, the mask is learnable. And the size of patches is 64 * 64 * 31. In addition, only the central areas with 512 * 512 * 31 are compared in testing.
-<table>
+<table align="center">
    <tr align = "center">
       <td rowspan="2"></td>
       <td colspan="2">ICVL</td>
@@ -83,7 +83,7 @@ The results reproduced on [ICVL Dataset](http://icvl.cs.bgu.ac.il/hyperspectral/
 
 ### 2. Results of Extra-Experiments on CAVE&KAIST Datasets
 The results obtained on [CAVE Dataset](https://www1.cs.columbia.edu/CAVE/projects/gap_camera/) and [KAIST Dataset](http://vclab.kaist.ac.kr/siggraphasia2017p1/). 30 scenes of CAVE are used for training, and 10 scenes of KAIST are used for testing. The fixed mask is a binary constant randomly generated in model initialization. The optimized mask is a learnable binary variable that can be optimized by the network. Note that, there is only **one binary mask** utilized in training and testing. Images with a size of 256 * 256 * 28 are used for comparison.
-<table>
+<table align="center">
    <tr align = "center">
       <td></td>
       <td>Fixed Mask</td>
